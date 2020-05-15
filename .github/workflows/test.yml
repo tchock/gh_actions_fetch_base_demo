@@ -10,6 +10,7 @@ jobs:
     - name: Fetch base ref
       run: |
         git fetch --no-tags origin $BASE_REF
+        echo Found branches:
         git branch
       env:
         BASE_REF: ${{ github.base_ref }}
