@@ -1,0 +1,15 @@
+name: CI - Test
+on: ['pull_request']
+jobs:
+  run:
+    name: Test
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Fetch base ref
+      run: |
+        git fetch --no-tags origin $BASE_REF
+        git branch
+      env:
+        BASE_REF: ${{ github.base_ref }}
